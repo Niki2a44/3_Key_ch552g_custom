@@ -210,7 +210,7 @@ void led_update()
   {
     if (curretn_key_s == led)
     {
-      if(led_configurations[0].led[lmode].type == BUTTONPRESS){
+      if(led_configurations[0].led[lmode].type == BUTTONPRESS && led_mode_s != LED_FIX){
           color_rgb[led][0] = led_configurations[0].led[lmode].r;
           color_rgb[led][1] = led_configurations[0].led[lmode].g;
           color_rgb[led][2] = led_configurations[0].led[lmode].b;
