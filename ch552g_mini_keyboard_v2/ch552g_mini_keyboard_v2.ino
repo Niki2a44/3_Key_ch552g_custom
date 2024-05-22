@@ -44,8 +44,9 @@ void setup()
   // Go in bootloader more if connected with encoder button pressed
   if (!digitalRead(PIN_BTN_ENC))
   {
-    ApplyBrightnessHUE(2, NEO_MAG,255); //  set led3 to magenta
-    NEO_update();                              // update pixels
+    led_boot();
+    
+                             // update pixels
     BOOT_now();     // jump to bootloader
   }
   load_profile();

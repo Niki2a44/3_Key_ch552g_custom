@@ -116,15 +116,15 @@ const keyboard_configuration_t configurations[NUM_CONFIGURATION] = {
             [BTN_1] = {
                 .type = BUTTON_SEQUENCE,
                 .function.sequence = {
-                    .sequence = { 'S','l','a','v','a',' ','U','k','r','a','i','n','i','!'}, // ctxxxxxxxxxxxxxrl + z
-                    .length = 14,            // Lengh of sequence
+                    .sequence = { KEY_LEFT_SHIFT,'N'}, // ctxxxxxxxxxxxxxrl + z
+                    .length = 2,            // Lengh of sequence
                     .delay = 2             // no delay
                 }
             },
             [BTN_2] = {
                 .type = BUTTON_SEQUENCE,
                 .function.sequence = {
-                    .sequence = {'a'}, // ctrl + v
+                    .sequence = {'k'}, // ctrl + v
                     .length = 1,            // Lengh of sequence
                     .delay = 0             // no delay
                 }
@@ -132,18 +132,26 @@ const keyboard_configuration_t configurations[NUM_CONFIGURATION] = {
             [BTN_3] = {
                 .type = BUTTON_SEQUENCE,
                 .function.sequence = {
-                    .sequence = {'g'}, // ctrl + c
+                    .sequence = {'m'}, // ctrl + c
                     .length = 1,            // Lengh of sequence
                     .delay = 0             // no delay
                 }
             },
             [ENC_CW] = { // scroll up
-                .type = BUTTON_FUNCTION,
-                .function.functionPointer = button_brightness_up,
+                 .type = BUTTON_SEQUENCE,
+                .function.sequence = {
+                    .sequence = {KEY_DOWN_ARROW}, // ctrl + c
+                    .length = 1,            // Lengh of sequence
+                    .delay = 0             // no delay
+                }
             },
             [ENC_CCW] = {   // scroll down
-                 .type = BUTTON_FUNCTION,
-                .function.functionPointer = button_brightness_down,
+                 .type = BUTTON_SEQUENCE,
+                .function.sequence = {
+                    .sequence = {KEY_UP_ARROW}, // ctrl + c
+                    .length = 1,            // Lengh of sequence
+                    .delay = 0             // no delay
+                }
             },
             [BTN_ENC] = {
                 .type = BUTTON_FUNCTION,
@@ -187,7 +195,7 @@ const led_configuration_t led_configurations[NUM_LED_CONFIGURATION] = {
         .led = { // Configurtion copy paste keyboard
             [1] = {
               .type = RAINBOW,
-              .speed = 2,
+              .speed = 1,
             },
             [2] = {
               .type = SOLID,

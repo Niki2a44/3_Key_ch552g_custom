@@ -2,6 +2,8 @@
 
 #include "keyboard.h"
 #include "util.h"
+#include "led.h"
+#include "neo/neo.h"
 #include "buttons.h"
 
 // Button pins
@@ -99,7 +101,7 @@ void buttons_update(void)
     }
     if (btEncActive_s  && bt1Active_s  && bt2Active_s  && bt3Active_s)
     {
-        // go in bootloader mode if press all buttons
+        led_boot();
         BOOT_now();
     }
 }

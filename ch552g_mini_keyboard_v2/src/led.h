@@ -60,3 +60,4 @@ void increase_brightness();
 void decrease_brightness();
 void loop_modes();
 void ApplyBrightnessHUE(int pixel, int h,int br);
+void led_boot();

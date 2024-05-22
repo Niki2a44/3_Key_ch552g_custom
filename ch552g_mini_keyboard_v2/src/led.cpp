@@ -17,7 +17,7 @@ int h1 = 0;
 bool t2 = true;
 bool rainbow = false;
 int brightnes = 255;
-int step = 20;
+int step = 10;
 int lmode = 1;
 
 void led_set_color_hue(uint8_t led0, uint8_t led1, uint8_t led2)
@@ -50,6 +50,18 @@ void load_rgbtq(){
     if (ReadDataFlash(DATA_FLASH_BRIGHTNESS_ADDR, 2, buf2) == 2) {
         int profile2 = buf2[1]; // Extract profile from the buffer
         brightnes = profile2;
+    }
+}
+void led_boot(){
+  ApplyBrightnessHUE(0, NEO_MAG,255);
+  NEO_update();  
+    delay(200);
+    for (int i = 1; i < 3; i++)
+    {   
+        ApplyBrightnessHUE(i-1, NEO_MAG,0);
+        ApplyBrightnessHUE(i, NEO_MAG,255); //  set led3 to magenta
+        NEO_update();  
+        delay(200);
     }
 }
 
